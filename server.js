@@ -6,8 +6,6 @@ var bodyParser = require('body-parser');
 
 var port = process.env.PORT || 8000; 
 
-var wooCommerce = require('./settings/woo-commerce.js').wooCommerce;
-
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));

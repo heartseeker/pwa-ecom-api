@@ -8,9 +8,8 @@ var port = process.env.PORT || 8000;
 
 var url = require('url');
 
-var request = require('request');
+var request = require('../core/api');
 
-var wooCommerce = require('../settings/woo-commerce.js').wooCommerce;
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -51,12 +50,11 @@ router.get('/customers/:id', function (req, res) {
 // products
 //========================================================================
 router.get('/products', function (req, res) {
-
     var url_parts = url.parse(req.url, true);
     var query = url_parts.search;
 
-    wooCommerce.getAsync('products' + query).then(function(result) {
-        res.json(JSON.parse(result.toJSON().body));
+    request.get('products' + query, function(err, response, result) {
+        res.json(JSON.parse(result));
     });
 });
 
@@ -67,8 +65,8 @@ router.get('/products/search/:q', function (req, res) {
     var url_parts = url.parse(req.url, true);
     var query = url_parts.search;
 
-    wooCommerce.getAsync('products?filter[q]=' + req.params.id + query).then(function(result) {
-        res.json(JSON.parse(result.toJSON().body));
+    request.get('products?search=' + req.params.q + query, function(err, response, result) {
+        res.json(JSON.parse(result));
     });
 });
 
@@ -87,14 +85,14 @@ router.get('/product/:id/reviews', function (req, res) {
 // categories
 //========================================================================
 router.get('/products/categories', function (req, res) {
-
     var url_parts = url.parse(req.url, true);
     var query = url_parts.search;
 
-    wooCommerce.getAsync('products/categories' + query).then(function(result) {
-        res.json(JSON.parse(result.toJSON().body));
+    request.get('products/categories' + query, function(err, response, result) {
+        res.json(JSON.parse(result));
     });
 });
+
 
 // orders
 //========================================================================
