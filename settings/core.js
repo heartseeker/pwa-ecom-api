@@ -1,5 +1,5 @@
 module.exports = {
-  consumer_key:'ck_4c2bf95ca8cdb4678aefc27e82a35f5416d1fbbe',
-  consumer_secret:'cs_dc2fcf4181c23f6b5aceffa0046a01054c37f9ef',
+  consumer_key:'ck_901a2d8d8f110651e91321d70bb0ba9c219997d0',
+  consumer_secret:'cs_284dbd5f36bf1264c96fd8e0e11bee2ad0702aeb',
   api_url: 'https://thehypedistrict.com',
 };
