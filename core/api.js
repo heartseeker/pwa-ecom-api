@@ -8,6 +8,7 @@ module.exports = {
         consumer_key: settings.consumer_key,
         consumer_secret: settings.consumer_secret,
       },
+      query_string_auth: true,
       qs:{user_id:'...'}
     }, callback)
   }
