@@ -7,7 +7,7 @@ module.exports = {
       auth:{
         user: settings.consumer_key,
         pass: settings.consumer_secret,
-        sendImmediately: false
+        sendImmediately: true
       },
       qs:{user_id:'...'}
     }, callback)
